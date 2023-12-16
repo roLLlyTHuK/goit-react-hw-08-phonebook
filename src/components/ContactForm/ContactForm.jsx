@@ -1,4 +1,3 @@
-import { nanoid } from 'nanoid';
 import {
   Container,
   Text,
@@ -10,8 +9,10 @@ import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { getContacts } from '../../redux/selectors';
-import { addContact } from '../../redux/operations';
+import { getContacts } from '../../redux/contacts/selectors';
+import { addContact } from '../../redux/contacts/operations';
+import { toast } from 'react-toastify';
+import { unwrapResult } from '@reduxjs/toolkit';
 
 const initialValues = {
   name: '',
@@ -21,9 +22,7 @@ const initialValues = {
 let userSchema = yup.object({
   name: yup
     .string()
-    .matches(
-      /^[a-zA-Zа-яА-ЯґєіїҐЄІЇ]+(([' -][a-zA-Zа-яА-ЯґєіїҐЄІЇ ])?[a-zA-Zа-яА-ЯґєіїҐЄІЇ]*)*$/
-    )
+    .matches(/^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/)
     .required(),
   number: yup
     .string()
@@ -43,11 +42,15 @@ export function ContactForm() {
         contact => contact.name.toLowerCase() === values.name.toLowerCase()
       ) === undefined
     ) {
-      const item = { id: nanoid(), name: values.name, number: values.number };
-      dispatch(addContact(item));
+      const item = { name: values.name, number: values.number };
+      dispatch(addContact(item))
+        .then(unwrapResult)
+        .catch(rejectedValueOrSerializedError => {
+          toast.error(rejectedValueOrSerializedError);
+        });
       actions.resetForm();
     } else {
-      alert(`${values.name} is already in contacts.`);
+      toast.error(`${values.name} is already in contacts.`);
     }
   };
 

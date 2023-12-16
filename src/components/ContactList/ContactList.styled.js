@@ -1,19 +1,7 @@
 import styled from 'styled-components';
 
-const ListItem = styled.li`
-  width: 300px;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  gap: 12px;
+export const Container = styled.div`
   margin: 0 auto;
-  margin-bottom: 8px;
-`;
-const Span = styled.span`
-  width: 140px;
-`;
-const NumberSpan = styled.span`
-  width: 120px;
 `;
 
 const Button = styled.button`
@@ -22,4 +10,4 @@ const Button = styled.button`
   border: 1px solid black;
 `;
 
-export { ListItem, Button, Span, NumberSpan };
+export { Button };
