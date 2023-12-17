@@ -7,7 +7,9 @@ export const Container = styled(Form)`
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  border: 2px solid black;
+  border: 2px solid #1976d2;
+  color: white;
+  background-color: #1976d2;
   padding: 20px;
   gap: 10px;
   width: 300px;
@@ -25,8 +27,9 @@ export const Input = styled(Field)`
   width: 100%;
   height: 30px;
   font-size: 20px;
+  color: #1976d2;
   border-radius: 4px;
-  border: 1px solid black;
+  border: 1px solid #1976d2;
   padding-left: 8px;
 `;
 

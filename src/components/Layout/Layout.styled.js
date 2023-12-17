@@ -14,7 +14,7 @@ export const Header = styled.header`
   gap: 16px;
   padding: 16px 10px;
   width: 800px;
-  border-bottom: 2px solid lightgray;
+  border-bottom: 2px solid #1976d2;
   margin: 0 auto;
   align-items: center;
   justify-content: space-between;
