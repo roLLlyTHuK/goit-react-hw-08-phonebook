@@ -9,7 +9,7 @@ export const Container = styled(Form)`
   border: 1px solid black;
   padding: 20px;
   gap: 10px;
-  width: 300px;
+  /* width: 300px; */
   margin: 0 auto;
 `;
 

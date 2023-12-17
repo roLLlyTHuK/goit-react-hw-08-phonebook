@@ -6,7 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   margin: 0 auto;
   align-items: center;
-  /* width: 800px; */
+  width: 800px;
 `;
 
 export const Header = styled.header`
