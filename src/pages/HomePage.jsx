@@ -23,9 +23,9 @@ export const Home = () => {
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>Welcome to the phonebook!</h1>
+      <h1 style={styles.title}>Welcome to the Phonebook!</h1>
       <h1 style={styles.title}>
-        {user.name ? `${user.name}` : 'Dear guest, please '}
+        {user.name ? `Glad to see you, ${user.name}` : 'Dear guest, please '}
         {!user.name && (
           <>
             <Link to="/auth">log in</Link>
