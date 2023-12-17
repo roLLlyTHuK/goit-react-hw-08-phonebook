@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { Home, Login, Signup, Contacts } from '../pages';
+import { Home, Contacts, Auth } from '../pages';
 import { Layout } from './Layout/Layout';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -19,15 +19,9 @@ export function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route
-          path="/register"
+          path="/auth"
           element={
-            <RestrictedRoute redirectTo="/contacts" component={<Signup />} />
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <RestrictedRoute redirectTo="/contacts" component={<Login />} />
+            <RestrictedRoute redirectTo="/contacts" component={<Auth />} />
           }
         />
         <Route

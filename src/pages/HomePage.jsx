@@ -23,13 +23,13 @@ export const Home = () => {
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>Welcome to the phonebook,</h1>
+      <h1 style={styles.title}>Welcome to the phonebook!</h1>
       <h1 style={styles.title}>
-        {user.name ? `${user.name}` : 'guest, please '}
+        {user.name ? `${user.name}` : 'Dear guest, please '}
         {!user.name && (
           <>
-            <Link to="/register">register</Link> or{' '}
-            <Link to="/login">log in</Link>.
+            <Link to="/auth">log in</Link>
+            {` `} to access contacts.
           </>
         )}
       </h1>
