@@ -8,6 +8,8 @@ export const Wrapper = styled.div`
 
 export const Name = styled.p`
   font-weight: bold;
+  color: #1976d2;
+  font-size: 1rem;
 `;
 
 export const Button = styled.button`
