@@ -8,6 +8,7 @@ body {
   color: #1976d2;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
 }
 h1,
 h2 {
