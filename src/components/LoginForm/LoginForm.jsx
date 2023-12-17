@@ -1,10 +1,12 @@
-import { Button, ErrorText, Input, Text, Container } from './LoginForm.styled';
+import { ErrorText, Input, Text, Container } from './LoginForm.styled';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
 import { unwrapResult } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
+import Button from '@mui/material/Button';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const initialValues = {
   email: '',
@@ -49,7 +51,14 @@ export const LoginForm = () => {
         <ErrorMessage name="password">
           {() => <ErrorText>Wrong password</ErrorText>}
         </ErrorMessage>
-        <Button type="Submit">Log in</Button>
+        <Button
+          style={{ margin: '0 auto' }}
+          type="Submit"
+          variant="contained"
+          endIcon={<ChevronRightIcon />}
+        >
+          Log in
+        </Button>
       </Container>
     </Formik>
   );

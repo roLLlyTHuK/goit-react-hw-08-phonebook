@@ -1,4 +1,4 @@
-import { Container, Button } from './ContactList.styled';
+import { Container } from './ContactList.styled';
 import {
   selectFilteredContacts,
   getIsLoading,
@@ -17,6 +17,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -66,7 +68,7 @@ export function ContactList() {
               <TableRow>
                 <StyledTableCell>Name</StyledTableCell>
                 <StyledTableCell align="right">Phone</StyledTableCell>
-                <StyledTableCell align="right">Action</StyledTableCell>
+                <StyledTableCell align="right">Delete contacts</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -86,9 +88,11 @@ export function ContactList() {
                       <StyledTableCell align="right">
                         {
                           <Button
+                            variant="contained"
+                            startIcon={<DeleteIcon />}
                             onClick={() => dispatch(deleteContact(row.id))}
                           >
-                            Delete
+                            DELETE
                           </Button>
                         }
                       </StyledTableCell>

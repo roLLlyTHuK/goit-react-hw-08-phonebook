@@ -2,9 +2,13 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
-  `;
-  
+  align-items: center;
+  /* width: 800px; */
+`;
+
 export const Header = styled.header`
   display: flex;
   gap: 16px;
@@ -23,11 +27,15 @@ export const HeaderMenu = styled.nav`
 `;
 
 export const StyledLink = styled(NavLink)`
-  color: black;
+  color: #1976d2;
   text-decoration: none;
   text-transform: uppercase;
+  padding: 0.5rem;
 
   &.active {
-    color: orange;
+    color: white;
+    border: 1px solid #1976d2;
+    background-color: #1976d2;
+    border-radius: 4px;
   }
 `;

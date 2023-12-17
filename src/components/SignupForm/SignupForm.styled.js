@@ -21,8 +21,14 @@ export const ErrorText = styled.p`
   margin: 0;
   color: red;
 `;
-
-export const Input = styled(Field)``;
+export const Input = styled(Field)`
+  width: 100%;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 4px;
+  border: 1px solid black;
+  padding-left: 8px;
+`;
 
 export const Button = styled.button`
   cursor: pointer;

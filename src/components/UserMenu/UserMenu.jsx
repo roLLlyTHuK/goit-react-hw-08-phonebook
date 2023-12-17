@@ -1,7 +1,7 @@
-import { Avatar } from '@mui/material';
+import { Avatar, Button } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors';
-import { Button, Name, Wrapper } from './UserMenu.styled';
+import { Name, Wrapper } from './UserMenu.styled';
 import { logOut } from '../../redux/auth/operations';
 
 export const UserMenu = () => {
@@ -19,7 +19,7 @@ export const UserMenu = () => {
     return color;
   }
 
-  function stringAvatar(name) {
+  function nameAvatar(name) {
     let stringAvatar = ' ';
     let colorString = 'default';
     if (name) {
@@ -47,9 +47,12 @@ export const UserMenu = () => {
 
   return (
     <Wrapper>
-      <Avatar {...stringAvatar(user.name)} />
-      <Name>{user.name}</Name>
-      <Button onClick={() => dispatch(logOut())}>Log Out</Button>
+      <Avatar {...nameAvatar(user.name)} sx={{ bgcolor: '#1976d2' }} />
+
+      <Name>{user.email}</Name>
+      <Button variant="contained" onClick={() => dispatch(logOut())}>
+        Log Out
+      </Button>
     </Wrapper>
   );
 };

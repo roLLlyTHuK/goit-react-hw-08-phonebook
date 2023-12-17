@@ -1,10 +1,4 @@
-import {
-  Container,
-  Text,
-  Input,
-  Button,
-  ErrorText,
-} from './ContactForm.styled';
+import { Container, Text, Input, ErrorText } from './ContactForm.styled';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { useSelector } from 'react-redux';
@@ -13,6 +7,8 @@ import { getContacts } from '../../redux/contacts/selectors';
 import { addContact } from '../../redux/contacts/operations';
 import { toast } from 'react-toastify';
 import { unwrapResult } from '@reduxjs/toolkit';
+import Button from '@mui/material/Button';
+import AddBoxIcon from '@mui/icons-material/AddBox';
 
 const initialValues = {
   name: '',
@@ -22,7 +18,9 @@ const initialValues = {
 let userSchema = yup.object({
   name: yup
     .string()
-    .matches(/^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/)
+    .matches(
+      /^[a-zA-Zа-яА-ЯґєіїҐЄІЇ]+(([' -][a-zA-Zа-яА-ЯґєіїҐЄІЇ ])?[a-zA-Zа-яА-ЯґєіїҐЄІЇ]*)*$/
+    )
     .required(),
   number: yup
     .string()
@@ -89,7 +87,14 @@ export function ContactForm() {
             </ErrorText>
           )}
         </ErrorMessage>
-        <Button type="Submit">Add contact</Button>
+        <Button
+          style={{ margin: '0 auto' }}
+          type="Submit"
+          variant="contained"
+          endIcon={<AddBoxIcon />}
+        >
+          Add contact
+        </Button>
       </Container>
     </Formik>
   );
